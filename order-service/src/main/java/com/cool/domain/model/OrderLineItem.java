@@ -21,4 +21,12 @@ public class OrderLineItem {
     private BigDecimal price;
     private Integer quantity;
 
+
+    public String getSkuCode() {
+        return skuCode;
+    }
+
+    public void setSkuCode(String skuCode) {
+        this.skuCode = skuCode;
+    }
 }
