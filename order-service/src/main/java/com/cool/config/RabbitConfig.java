@@ -1,4 +1,4 @@
-package com.cool.product.config;
+package com.cool.config;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
