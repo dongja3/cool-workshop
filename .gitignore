@@ -23,3 +23,9 @@
 hs_err_pid*
 .idea/*
 target/*
+classes/*
+inventory-service/target/classes/application.properties
+notification-service/target/classes/application.properties
+product-service/target/classes/application.properties
+order-service/target/classes/application.properties
+order-service/target/classes/application.properties
