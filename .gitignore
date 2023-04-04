@@ -29,3 +29,4 @@ notification-service/target/classes/application.properties
 product-service/target/classes/application.properties
 order-service/target/classes/application.properties
 order-service/target/classes/application.properties
+/docker/mongodb/database/*
