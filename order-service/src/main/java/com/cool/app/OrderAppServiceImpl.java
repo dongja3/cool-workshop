@@ -34,7 +34,7 @@ public class OrderAppServiceImpl implements com.cool.product.app.OrderAppService
         List<String> skuCodes = order.getOrderLineItems().stream().map(OrderLineItem::getSkuCode).toList();
 
         for(String skuCode: skuCodes){
-            boolean isProductExist = webClientBuilder.build().get().uri("http://localhost:8084",
+            boolean isProductExist = webClientBuilder.build().get().uri("http://product-service",
                     uriBuilder -> uriBuilder.path("/api/product/exist/{skuCode}")
                             .build(skuCode)).retrieve().bodyToMono(Boolean.class).block();
             if(!isProductExist){
@@ -43,7 +43,7 @@ public class OrderAppServiceImpl implements com.cool.product.app.OrderAppService
         }
 
         InventoryResponse[] inventoryResponses = webClientBuilder.build().get()
-                .uri("http://localhost:8082/api/inventory",uriBuilder -> uriBuilder.queryParam("skuCodes", skuCodes).build())
+                .uri("http://inventory-service/api/inventory",uriBuilder -> uriBuilder.queryParam("skuCodes", skuCodes).build())
                 .retrieve()
                 .bodyToMono(InventoryResponse[].class)
                 .block();

@@ -16,6 +16,7 @@ public class ProductController {
     @RequestMapping(path="/exist/{skuCode}")
     @ResponseStatus (HttpStatus.OK)
     boolean findBySkuCode(@PathVariable String skuCode){
+
         return productService.findBySkuCode(skuCode).isPresent();
     }
 }
