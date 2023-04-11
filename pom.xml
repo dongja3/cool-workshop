@@ -9,6 +9,7 @@
         <module>notification-service</module>
         <module>product-service</module>
         <module>discovery-server</module>
+        <module>api-gateway</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

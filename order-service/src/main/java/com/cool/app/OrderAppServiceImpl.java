@@ -1,4 +1,4 @@
-package com.cool.notification.app;
+package com.cool.app;
 
 import com.cool.api.dto.InventoryResponse;
 import com.cool.domain.event.OrderEvent;
@@ -8,6 +8,7 @@ import com.cool.domain.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -28,6 +29,8 @@ public class OrderAppServiceImpl implements com.cool.product.app.OrderAppService
     RabbitTemplate rabbitTemplate;
 
     @Override
+
+    @CircuitBreaker(name = "placeOrder", fallbackMethod = "placeOrderFallback")
     public String placeOrder(Order order) {
         log.info("start place order{}", order.getOrderNo());
 
@@ -59,5 +62,9 @@ public class OrderAppServiceImpl implements com.cool.product.app.OrderAppService
             return "Product is not in stock, please try again later";
         }
         
+    }
+
+    public String placeOrderFallback(Order order, RuntimeException e){
+        return "Oops!, something went wrong, please retry later!" + System.lineSeparator() + e.getMessage();
     }
 }

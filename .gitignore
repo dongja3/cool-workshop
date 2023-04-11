@@ -32,3 +32,6 @@ order-service/target/classes/application.properties
 /docker/mongodb/database/*
 /discovery-server/target/classes/application.properties
 /discovery-server/target/*
+/api-gateway/target/classes/application.properties
+/order-service/target/classes/application.properties
+/order-service/target/classes/application.properties
