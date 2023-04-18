@@ -27,11 +27,9 @@ classes/*
 inventory-service/target/classes/application.properties
 notification-service/target/classes/application.properties
 product-service/target/classes/application.properties
-order-service/target/classes/application.properties
-order-service/target/classes/application.properties
 /docker/mongodb/database/*
 /discovery-server/target/classes/application.properties
 /discovery-server/target/*
 /api-gateway/target/classes/application.properties
 /order-service/target/classes/application.properties
-/order-service/target/classes/application.properties
+/order-service/target/classes/*
