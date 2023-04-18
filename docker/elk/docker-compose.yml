@@ -1,0 +1,13 @@
+version: '2'
+services:
+  elasticsearch:
+    image: elasticsearch:6.8.23
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+  kibana:
+    image: kibana:6.8.23
+    depends_on:
+      - elasticsearch
+    ports:
+      - "5601:5601"
